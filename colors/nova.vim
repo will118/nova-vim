@@ -1,5 +1,6 @@
 " ==================================================================
 " THEME
+" TODO: Read from nova-colors as single source of truth instead of hard-coding in vim plugin
 " ==================================================================
 
 " NORMAL
@@ -22,6 +23,23 @@ let s:nova_bright_white = "#E6EEF3"
 let s:nova_decoration_dark = "#1E272C"
 let s:nova_decoration_medium = "#556873"
 let s:nova_decoration_light = "#6A7D89"
+
+
+" ==================================================================
+" PURPOSE
+" ==================================================================
+
+let s:purpose_background = s:nova_normal_black
+let s:purpose_background_tint = s:nova_decoration_medium
+let s:purpose_important = s:nova_normal_red
+let s:purpose_type = s:nova_normal_green
+let s:purpose_value = s:nova_normal_yellow
+let s:purpose_identifier = s:nova_normal_blue
+let s:purpose_global = s:nova_normal_magenta
+let s:purpose_expression = s:nova_normal_cyan
+let s:purpose_subtle = s:nova_bright_black
+let s:purpose_current = s:nova_bright_red
+let s:purpose_special = s:nova_bright_magenta
 
 
 " ==================================================================
@@ -54,17 +72,17 @@ call s:highlight_helper("Normal", s:nova_normal_white, "")
 " SYNTAX
 " ==================================================================
 
-call s:highlight_helper("Comment", s:nova_normal_white, "")
-call s:highlight_helper("Todo", s:nova_normal_white, "")
-call s:highlight_helper("Identifier", s:nova_normal_white, "")
-call s:highlight_helper("Constant", s:nova_normal_white, "")
-call s:highlight_helper("Statement", s:nova_normal_white, "")
-call s:highlight_helper("Type", s:nova_normal_white, "")
-call s:highlight_helper("PreProc", s:nova_normal_white, "")
-call s:highlight_helper("Error", s:nova_normal_white, "")
-call s:highlight_helper("Underlined", s:nova_normal_white, "")
-call s:highlight_helper("Special", s:nova_normal_white, "")
-call s:highlight_helper("Ignore", s:nova_normal_white, "")
+call s:highlight_helper("Comment", s:purpose_subtle, "")
+call s:highlight_helper("Todo", s:purpose_important, "")
+call s:highlight_helper("Identifier", s:purpose_identifier, "")
+call s:highlight_helper("Constant", s:purpose_value, "")
+call s:highlight_helper("Statement", s:purpose_expression, "")
+call s:highlight_helper("Type", s:purpose_type, "")
+call s:highlight_helper("PreProc", s:purpose_global, "")
+call s:highlight_helper("Error", s:purpose_important, "")
+call s:highlight_helper("Underlined", s:purpose_special, "")
+call s:highlight_helper("Special", s:purpose_special, "")
+call s:highlight_helper("Ignore", s:purpose_subtle, "")
 
 
 " ==================================================================
@@ -72,47 +90,47 @@ call s:highlight_helper("Ignore", s:nova_normal_white, "")
 " ==================================================================
 
 " DIRECTORIES
-call s:highlight_helper("Directory", s:nova_normal_white, "")
+call s:highlight_helper("Directory", s:purpose_value, "")
 
 " PAGER
-call s:highlight_helper("MoreMsg", s:nova_normal_white, "")
+call s:highlight_helper("MoreMsg", s:purpose_current, "")
 
 " TABS
-call s:highlight_helper("Tabline", s:nova_normal_white, "")
-call s:highlight_helper("TablineFill", s:nova_normal_white, "")
-call s:highlight_helper("TablineSel", s:nova_normal_white, "")
+call s:highlight_helper("Tabline", s:nova_decoration_dark, "")
+call s:highlight_helper("TablineFill", s:nova_decoration_dark, "")
+call s:highlight_helper("TablineSel", s:purpose_current, "")
 
 " SPLITS
 set fillchars=""
-call s:highlight_helper("VertSplit", s:nova_normal_white, "")
+call s:highlight_helper("VertSplit", s:purpose_background_tint, s:purpose_background_tint)
 
 " STATUS LINE
-call s:highlight_helper("StatusLine", s:nova_normal_white, "")
-call s:highlight_helper("StatusLineNC", s:nova_normal_white, "")
+call s:highlight_helper("StatusLineNC", s:nova_bright_black, s:purpose_background_tint)
+call s:highlight_helper("StatusLine", s:purpose_current, s:purpose_background_tint)
 
 " BUFFER OVERFLOW
-call s:highlight_helper("EndOfBuffer", s:nova_normal_white, "")
+call s:highlight_helper("EndOfBuffer", s:nova_decoration_light, s:purpose_background)
 
 " SEARCH
-call s:highlight_helper("Search", s:nova_normal_white, "")
-call s:highlight_helper("IncSearch", s:nova_normal_white, "")
+call s:highlight_helper("IncSearch", s:nova_decoration_light, s:purpose_current)
+call s:highlight_helper("Search", s:nova_decoration_dark, s:purpose_current)
 
 " COMMAND LINE
-call s:highlight_helper("ModeMsg", s:nova_normal_white, "")
-call s:highlight_helper("ErrorMsg", s:nova_normal_white, "")
-call s:highlight_helper("WarningMsg", s:nova_normal_white, "")
-call s:highlight_helper("WildMenu", s:nova_normal_white, "")
-call s:highlight_helper("Question", s:nova_normal_white, "")
+call s:highlight_helper("ModeMsg", s:purpose_current, "")
+call s:highlight_helper("ErrorMsg", s:purpose_important, "")
+call s:highlight_helper("WarningMsg", s:purpose_important, "")
+call s:highlight_helper("WildMenu", s:nova_decoration_light, s:purpose_current)
+call s:highlight_helper("Question", s:purpose_current, "")
 call s:highlight_helper("Title", s:nova_normal_white, "")
 
 " GUTTER
-call s:highlight_helper("LineNr", s:nova_normal_white, "")
-call s:highlight_helper("SignColumn", s:nova_normal_white, "")
-call s:highlight_helper("CursorColumn", s:nova_normal_white, "")
-call s:highlight_helper("CursorLineNr", s:nova_normal_white, "")
+call s:highlight_helper("LineNr", s:nova_decoration_light, "")
+call s:highlight_helper("CursorLineNr", s:purpose_current, "")
+call s:highlight_helper("SignColumn", "NONE", s:purpose_background)
 
 " CURSOR
-call s:highlight_helper("CursorLine", s:nova_normal_white, "")
+call s:highlight_helper("CursorLine", "NONE", s:purpose_background_tint)
+call s:highlight_helper("CursorColumn", s:nova_decoration_light, "")
 
 " BRACKET MATCHING
 call s:highlight_helper("MatchParen", s:nova_normal_white, "")
