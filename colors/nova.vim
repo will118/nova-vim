@@ -21,6 +21,7 @@ let s:nova_bright_white = "#E6EEF3"
 " DECORATION
 let s:nova_decoration_dark = "#1E272C"
 let s:nova_decoration_medium = "#556873"
+let s:nova_decoration_light = "#6A7D89"
 
 " PURPOSE MAPPING
 let s:purpose_background = s:nova_normal_black
@@ -28,6 +29,7 @@ let s:purpose_background_shade = s:nova_decoration_dark
 let s:purpose_background_tint = s:nova_decoration_medium
 let s:purpose_default = s:nova_normal_white
 let s:purpose_subtle = s:nova_bright_black
+let s:purpose_title = s:nova_bright_white
 let s:purpose_critical = s:nova_normal_red
 let s:purpose_type = s:nova_normal_green
 let s:purpose_value = s:nova_normal_cyan
@@ -93,17 +95,17 @@ call s:highlight_helper("Directory", s:purpose_value, "")
 call s:highlight_helper("MoreMsg", s:purpose_current, "")
 
 " TABS
-call s:highlight_helper("Tabline", s:purpose_background, s:purpose_background_shade)
-call s:highlight_helper("TablineFill", s:purpose_background, s:purpose_background_shade)
-call s:highlight_helper("TablineSel", s:purpose_current, s:purpose_background_shade)
+call s:highlight_helper("Tabline", s:purpose_background, s:purpose_background_tint)
+call s:highlight_helper("TablineFill", s:purpose_background, s:purpose_background_tint)
+call s:highlight_helper("TablineSel", s:purpose_current, s:purpose_background_tint)
 
 " SPLITS
 set fillchars=""
-call s:highlight_helper("VertSplit", s:purpose_background_shade, s:purpose_background_shade)
+call s:highlight_helper("VertSplit", s:purpose_background_tint, s:purpose_background_tint)
 
 " STATUS LINE
-call s:highlight_helper("StatusLineNC", s:purpose_background, s:purpose_background_shade)
-call s:highlight_helper("StatusLine", s:purpose_current, s:purpose_background_shade)
+call s:highlight_helper("StatusLineNC", s:purpose_background, s:purpose_background_tint)
+call s:highlight_helper("StatusLine", s:purpose_current, s:purpose_background_tint)
 
 " BUFFER OVERFLOW
 call s:highlight_helper("EndOfBuffer", s:purpose_background_tint, s:purpose_background)
@@ -116,9 +118,9 @@ call s:highlight_helper("Search", s:purpose_background, s:purpose_current)
 call s:highlight_helper("ModeMsg", s:purpose_current, "")
 call s:highlight_helper("ErrorMsg", s:purpose_critical, "")
 call s:highlight_helper("WarningMsg", s:purpose_critical, "")
-call s:highlight_helper("WildMenu", s:purpose_background_shade, s:purpose_current)
+call s:highlight_helper("WildMenu", s:purpose_background_tint, s:purpose_current)
 call s:highlight_helper("Question", s:purpose_current, "")
-call s:highlight_helper("Title", s:purpose_background_shade, "")
+call s:highlight_helper("Title", s:purpose_title, "")
 
 " GUTTER
 call s:highlight_helper("LineNr", s:purpose_background_tint, "")
@@ -139,8 +141,8 @@ call s:highlight_helper("VisualNOS", "NONE", s:purpose_background_tint)
 " POPUP MENU
 call s:highlight_helper("Pmenu", s:purpose_current, s:purpose_background_shade)
 call s:highlight_helper("PmenuSel", s:purpose_background_shade, s:purpose_current)
-call s:highlight_helper("PmenuSbar", s:purpose_background_tint, s:purpose_background_tint)
-call s:highlight_helper("PmenuThumb", s:purpose_default, s:purpose_default)
+call s:highlight_helper("PmenuSbar", s:purpose_background_shade, s:purpose_background_shade)
+call s:highlight_helper("PmenuThumb", s:purpose_current, s:purpose_current)
 
 " SPELLING
 call s:highlight_helper("SpellBad", s:purpose_background, s:purpose_critical)
