@@ -1,2 +1,5 @@
 # nova-vim
-Nova Vim color scheme
+
+Nova color scheme plugin for Vim
+
+[trevordmiller.github.io/nova-docs](https://trevordmiller.github.io/nova-docs)
