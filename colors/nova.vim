@@ -1,6 +1,5 @@
 " ==================================================================
 " THEME
-" TODO: Read from nova-colors as single source of truth instead of hard-coding in vim plugin
 " ==================================================================
 
 " NORMAL
@@ -141,6 +140,10 @@ call s:highlight_helper("Pmenu", s:purpose_current, s:purpose_background_shade)
 call s:highlight_helper("PmenuSel", s:purpose_background_shade, s:purpose_current)
 call s:highlight_helper("PmenuSbar", s:purpose_background_tint, s:purpose_background_tint)
 call s:highlight_helper("PmenuThumb", s:purpose_default, s:purpose_default)
+
+" SPELLING
+call s:highlight_helper("SpellBad", s:purpose_background, s:purpose_important)
+call s:highlight_helper("SpellCap", s:purpose_background, s:purpose_important)
 
 " DIFFS
 call s:highlight_helper("DiffAdd", s:purpose_background, s:purpose_expression)
