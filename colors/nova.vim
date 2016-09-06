@@ -29,6 +29,7 @@ let s:purpose_background_shade = s:nova_decoration_dark
 let s:purpose_background_tint = s:nova_decoration_medium
 let s:purpose_default = s:nova_normal_white
 let s:purpose_subtle = s:nova_bright_black
+let s:purpose_subtle_shade = s:nova_decoration_light
 let s:purpose_title = s:nova_bright_white
 let s:purpose_critical = s:nova_normal_red
 let s:purpose_type = s:nova_normal_green
@@ -128,7 +129,7 @@ call s:highlight_helper("CursorLineNr", s:purpose_current, "")
 call s:highlight_helper("SignColumn", "NONE", s:purpose_background)
 
 " CURSOR
-call s:highlight_helper("CursorLine", "NONE", s:purpose_background_tint)
+call s:highlight_helper("CursorLine", "NONE", s:purpose_subtle_shade)
 call s:highlight_helper("CursorColumn", s:purpose_background_tint, "")
 
 " BRACKET MATCHING
