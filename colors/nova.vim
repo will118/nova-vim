@@ -139,7 +139,7 @@ call s:highlight_helper("Visual", "NONE", s:purpose_background_tint)
 call s:highlight_helper("VisualNOS", "NONE", s:purpose_background_tint)
 
 " POPUP MENU
-call s:highlight_helper("Pmenu", s:purpose_current, s:purpose_background_shade)
+call s:highlight_helper("Pmenu", s:purpose_default, s:nova_decoration_light)
 call s:highlight_helper("PmenuSel", s:purpose_background_shade, s:purpose_current)
 call s:highlight_helper("PmenuSbar", s:purpose_background_shade, s:purpose_background_shade)
 call s:highlight_helper("PmenuThumb", s:purpose_current, s:purpose_current)
