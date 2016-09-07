@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "scripts": {},
   "dependencies": {
-    "nova-colors": "^1.0.7"
+    "nova-colors": "1.0.8"
   },
   "main": "colors/nova.vim",
   "description": "Nova color scheme plugin for Vim",
