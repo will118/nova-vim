@@ -64,7 +64,7 @@ call s:highlight_helper("EndOfBuffer", s:nova_decoration_medium, "")
 call s:highlight_helper("VertSplit", s:nova_decoration_medium, s:nova_decoration_medium)
 call s:highlight_helper("StatusLineNC", s:nova_normal_black, s:nova_decoration_medium)
 call s:highlight_helper("Pmenu", s:nova_normal_white, s:nova_decoration_light)
-call s:highlight_helper("PmenuSbar", s:nova_decoration_dark, s:nova_decoration_dark)
+call s:highlight_helper("PmenuSbar", s:nova_bright_black, s:nova_bright_black)
 call s:highlight_helper("DiffText", s:nova_decoration_dark, "")
 call s:highlight_helper("ColorColumn", s:nova_decoration_medium, "")
 call s:highlight_helper("Folded", s:nova_normal_black, s:nova_decoration_medium)
@@ -99,7 +99,7 @@ call s:highlight_helper("PmenuThumb", s:purpose_user_current_state, s:purpose_us
 call s:highlight_helper("DiffAdd", s:nova_normal_black, s:purpose_user_current_state)
 
 " CONSTANT
-let s:purpose_constant = s:nova_normal_green
+let s:purpose_constant = s:nova_normal_cyan
 call s:highlight_helper("Constant", s:purpose_constant, "")
 call s:highlight_helper("Directory", s:purpose_constant, "")
 
@@ -112,17 +112,20 @@ let s:purpose_statement = s:nova_normal_yellow
 call s:highlight_helper("Statement", s:purpose_statement, "")
 
 " TYPE
-let s:purpose_type = s:nova_normal_magenta
+let s:purpose_type = s:nova_normal_green
 call s:highlight_helper("Type", s:purpose_type, "")
 
 " GLOBAL
-let s:purpose_global = s:nova_bright_magenta
+let s:purpose_global = s:nova_normal_magenta
 call s:highlight_helper("PreProc", s:purpose_global, "")
+
+" EMPHASIS
+let s:purpose_emphasis = s:nova_bright_magenta
+call s:highlight_helper("Underlined", s:purpose_emphasis, "")
 
 " SPECIAL
 let s:purpose_special = s:nova_bright_red
 call s:highlight_helper("Special", s:purpose_special, "")
-call s:highlight_helper("Underlined", s:purpose_special, "")
 call s:highlight_helper("SpecialKey", s:purpose_special, "")
 call s:highlight_helper("NonText", s:purpose_special, "")
 call s:highlight_helper("Title", s:purpose_special, "")
