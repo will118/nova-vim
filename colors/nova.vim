@@ -32,7 +32,7 @@ function! s:highlight_helper(syntax_group, foreground_color, background_color)
   if a:background_color != ""
     exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=" . a:background_color . " gui=NONE cterm=NONE term=NONE"
   else
-    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=NONE gui=NONE cterm=NONE term=NONE"
+    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=" . s:nova_normal_black . " gui=NONE cterm=NONE term=NONE"
   endif
 endfunction
 
@@ -56,11 +56,11 @@ call s:highlight_helper("Normal", s:nova_normal_white, "")
 " ==================================================================
 
 " DECORATION
-call s:highlight_helper("SignColumn", "NONE", s:nova_normal_black)
+call s:highlight_helper("SignColumn", "NONE", "")
 call s:highlight_helper("LineNr", s:nova_decoration_medium, "")
 call s:highlight_helper("CursorLine", "NONE", s:nova_decoration_medium)
 call s:highlight_helper("CursorColumn", s:nova_decoration_medium, "")
-call s:highlight_helper("EndOfBuffer", s:nova_decoration_medium, s:nova_normal_black)
+call s:highlight_helper("EndOfBuffer", s:nova_decoration_medium, "")
 call s:highlight_helper("VertSplit", s:nova_decoration_medium, s:nova_decoration_medium)
 call s:highlight_helper("StatusLineNC", s:nova_normal_black, s:nova_decoration_medium)
 call s:highlight_helper("Pmenu", s:nova_normal_white, s:nova_decoration_light)
