@@ -99,7 +99,7 @@ call s:highlight_helper("PmenuThumb", s:purpose_user_current_state, s:purpose_us
 call s:highlight_helper("DiffAdd", s:nova_normal_black, s:purpose_user_current_state)
 
 " CONSTANT
-let s:purpose_constant = s:nova_normal_green
+let s:purpose_constant = s:nova_normal_cyan
 call s:highlight_helper("Constant", s:purpose_constant, "")
 call s:highlight_helper("Directory", s:purpose_constant, "")
 
@@ -112,17 +112,20 @@ let s:purpose_statement = s:nova_normal_yellow
 call s:highlight_helper("Statement", s:purpose_statement, "")
 
 " TYPE
-let s:purpose_type = s:nova_normal_magenta
+let s:purpose_type = s:nova_normal_green
 call s:highlight_helper("Type", s:purpose_type, "")
 
 " GLOBAL
-let s:purpose_global = s:nova_bright_magenta
+let s:purpose_global = s:nova_normal_magenta
 call s:highlight_helper("PreProc", s:purpose_global, "")
+
+" EMPHASIS
+let s:purpose_emphasis = s:nova_bright_magenta
+call s:highlight_helper("Underlined", s:purpose_emphasis, "")
 
 " SPECIAL
 let s:purpose_special = s:nova_bright_red
 call s:highlight_helper("Special", s:purpose_special, "")
-call s:highlight_helper("Underlined", s:purpose_special, "")
 call s:highlight_helper("SpecialKey", s:purpose_special, "")
 call s:highlight_helper("NonText", s:purpose_special, "")
 call s:highlight_helper("Title", s:purpose_special, "")
