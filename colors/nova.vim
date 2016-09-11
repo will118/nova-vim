@@ -71,67 +71,67 @@ call s:highlight_helper("Folded", s:nova_normal_black, s:nova_decoration_medium)
 call s:highlight_helper("FoldColumn", s:nova_normal_black, s:nova_decoration_medium)
 
 " USER ACTION NEEDED
-let s:color_purpose_user_action_needed = s:nova_normal_red
-call s:highlight_helper("Error", s:color_purpose_user_action_needed, "")
-call s:highlight_helper("ErrorMsg", s:color_purpose_user_action_needed, "")
-call s:highlight_helper("WarningMsg", s:color_purpose_user_action_needed, "")
-call s:highlight_helper("SpellBad", s:nova_normal_black, s:color_purpose_user_action_needed)
-call s:highlight_helper("SpellCap", s:nova_normal_black, s:color_purpose_user_action_needed)
-call s:highlight_helper("DiffChange", s:nova_normal_black, s:color_purpose_user_action_needed)
-call s:highlight_helper("DiffDelete", s:nova_normal_black, s:color_purpose_user_action_needed)
-call s:highlight_helper("Todo", s:color_purpose_user_action_needed, "")
+let s:nova_purpose_user_action_needed = s:nova_normal_red
+call s:highlight_helper("Error", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("ErrorMsg", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("WarningMsg", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("SpellBad", s:nova_normal_black, s:nova_purpose_user_action_needed)
+call s:highlight_helper("SpellCap", s:nova_normal_black, s:nova_purpose_user_action_needed)
+call s:highlight_helper("DiffChange", s:nova_normal_black, s:nova_purpose_user_action_needed)
+call s:highlight_helper("DiffDelete", s:nova_normal_black, s:nova_purpose_user_action_needed)
+call s:highlight_helper("Todo", s:nova_purpose_user_action_needed, "")
 
 " USER CURRENT STATE
-let s:color_purpose_user_current_state = s:nova_normal_cyan
-call s:highlight_helper("MatchParen", s:color_purpose_user_current_state, "")
-call s:highlight_helper("CursorLineNr", s:color_purpose_user_current_state, "")
-call s:highlight_helper("Visual", s:nova_normal_black, s:color_purpose_user_current_state)
-call s:highlight_helper("VisualNOS", s:nova_normal_black, s:color_purpose_user_current_state)
-call s:highlight_helper("IncSearch", s:nova_normal_black, s:color_purpose_user_current_state)
-call s:highlight_helper("Search", s:nova_normal_black, s:color_purpose_user_current_state)
-call s:highlight_helper("WildMenu", s:nova_decoration_medium, s:color_purpose_user_current_state)
-call s:highlight_helper("Question", s:color_purpose_user_current_state, "")
-call s:highlight_helper("MoreMsg", s:color_purpose_user_current_state, "")
-call s:highlight_helper("ModeMsg", s:color_purpose_user_current_state, "")
-call s:highlight_helper("StatusLine", s:color_purpose_user_current_state, s:nova_decoration_medium)
-call s:highlight_helper("PmenuSel", s:nova_decoration_medium, s:color_purpose_user_current_state)
-call s:highlight_helper("PmenuThumb", s:color_purpose_user_current_state, s:color_purpose_user_current_state)
-call s:highlight_helper("DiffAdd", s:nova_normal_black, s:color_purpose_user_current_state)
+let s:nova_purpose_user_current_state = s:nova_normal_cyan
+call s:highlight_helper("MatchParen", s:nova_purpose_user_current_state, "")
+call s:highlight_helper("CursorLineNr", s:nova_purpose_user_current_state, "")
+call s:highlight_helper("Visual", s:nova_normal_black, s:nova_purpose_user_current_state)
+call s:highlight_helper("VisualNOS", s:nova_normal_black, s:nova_purpose_user_current_state)
+call s:highlight_helper("IncSearch", s:nova_normal_black, s:nova_purpose_user_current_state)
+call s:highlight_helper("Search", s:nova_normal_black, s:nova_purpose_user_current_state)
+call s:highlight_helper("WildMenu", s:nova_decoration_medium, s:nova_purpose_user_current_state)
+call s:highlight_helper("Question", s:nova_purpose_user_current_state, "")
+call s:highlight_helper("MoreMsg", s:nova_purpose_user_current_state, "")
+call s:highlight_helper("ModeMsg", s:nova_purpose_user_current_state, "")
+call s:highlight_helper("StatusLine", s:nova_purpose_user_current_state, s:nova_decoration_medium)
+call s:highlight_helper("PmenuSel", s:nova_decoration_medium, s:nova_purpose_user_current_state)
+call s:highlight_helper("PmenuThumb", s:nova_purpose_user_current_state, s:nova_purpose_user_current_state)
+call s:highlight_helper("DiffAdd", s:nova_normal_black, s:nova_purpose_user_current_state)
 
 " CONSTANT
-let s:color_purpose_constant = s:nova_normal_cyan
-call s:highlight_helper("Constant", s:color_purpose_constant, "")
-call s:highlight_helper("Directory", s:color_purpose_constant, "")
+let s:nova_purpose_constant = s:nova_normal_cyan
+call s:highlight_helper("Constant", s:nova_purpose_constant, "")
+call s:highlight_helper("Directory", s:nova_purpose_constant, "")
 
 " IDENTIFIER
-let s:color_purpose_identifier = s:nova_normal_blue
-call s:highlight_helper("Identifier", s:color_purpose_identifier, "")
+let s:nova_purpose_identifier = s:nova_normal_blue
+call s:highlight_helper("Identifier", s:nova_purpose_identifier, "")
 
 " STATEMENT
-let s:color_purpose_statement = s:nova_normal_yellow
-call s:highlight_helper("Statement", s:color_purpose_statement, "")
+let s:nova_purpose_statement = s:nova_normal_yellow
+call s:highlight_helper("Statement", s:nova_purpose_statement, "")
 
 " TYPE
-let s:color_purpose_type = s:nova_normal_green
-call s:highlight_helper("Type", s:color_purpose_type, "")
+let s:nova_purpose_type = s:nova_normal_green
+call s:highlight_helper("Type", s:nova_purpose_type, "")
 
 " GLOBAL
-let s:color_purpose_global = s:nova_normal_magenta
-call s:highlight_helper("PreProc", s:color_purpose_global, "")
+let s:nova_purpose_global = s:nova_normal_magenta
+call s:highlight_helper("PreProc", s:nova_purpose_global, "")
 
 " EMPHASIS
-let s:color_purpose_emphasis = s:nova_bright_magenta
-call s:highlight_helper("Underlined", s:color_purpose_emphasis, "")
+let s:nova_purpose_emphasis = s:nova_bright_magenta
+call s:highlight_helper("Underlined", s:nova_purpose_emphasis, "")
 
 " SPECIAL
-let s:color_purpose_special = s:nova_bright_red
-call s:highlight_helper("Special", s:color_purpose_special, "")
-call s:highlight_helper("SpecialKey", s:color_purpose_special, "")
-call s:highlight_helper("NonText", s:color_purpose_special, "")
-call s:highlight_helper("Title", s:color_purpose_special, "")
+let s:nova_purpose_special = s:nova_bright_red
+call s:highlight_helper("Special", s:nova_purpose_special, "")
+call s:highlight_helper("SpecialKey", s:nova_purpose_special, "")
+call s:highlight_helper("NonText", s:nova_purpose_special, "")
+call s:highlight_helper("Title", s:nova_purpose_special, "")
 
 " TRIVIAL
-let s:color_purpose_trivial = s:nova_bright_black
-call s:highlight_helper("Comment", s:color_purpose_trivial, "")
-call s:highlight_helper("Ignore", s:color_purpose_trivial, "")
-call s:highlight_helper("Conceal", s:color_purpose_trivial, "")
+let s:nova_purpose_trivial = s:nova_bright_black
+call s:highlight_helper("Comment", s:nova_purpose_trivial, "")
+call s:highlight_helper("Ignore", s:nova_purpose_trivial, "")
+call s:highlight_helper("Conceal", s:nova_purpose_trivial, "")
