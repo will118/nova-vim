@@ -1,7 +1,12 @@
 {
   "name": "nova-vim",
   "version": "2.1.1",
-  "scripts": {},
+  "scripts": {
+    "build": "node ./index.js > colors/nova.vim"
+  },
+  "pre-commit": [
+    "build"
+  ],
   "dependencies": {
     "nova-colors": "1.0.8"
   },
@@ -19,5 +24,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trevordmiller/nova-vim.git"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.1.3"
   }
 }
