@@ -1,6 +1,6 @@
 {
   "name": "nova-vim",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "scripts": {},
   "dependencies": {
     "nova-colors": "1.0.8"
