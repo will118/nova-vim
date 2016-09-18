@@ -1,6 +1,7 @@
-const nova = require('nova-colors');
+const nova = require('nova-colors')
 
-const colors =`" ==================================================================
+const sourceString =`
+" ==================================================================
 " COLORS
 " ==================================================================
 
@@ -239,6 +240,6 @@ call s:highlight_helper("jsNoise", s:nova_purpose_trivial, "")
 call s:highlight_helper("cssClassNameDot", s:nova_purpose_trivial, "")
 call s:highlight_helper("jsonQuote", s:nova_purpose_trivial, "")
 call s:highlight_helper("shQuote", s:nova_purpose_trivial, "")
-`;
+`
 
-process.stdout.write(colors);
+process.stdout.write(sourceString)
