@@ -1,6 +1,6 @@
 {
   "name": "nova-vim",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "scripts": {
     "start": "scripts/start",
     "push": "scripts/push",
@@ -16,7 +16,7 @@
   },
   "main": "colors/nova.vim",
   "description": "Nova color scheme plugin for Vim",
-  "homepage": "https://trevordmiller.github.io/nova-docs",
+  "homepage": "https://trevordmiller.github.io/nova",
   "author": "Trevor D. Miller <trevordmiller@icloud.com> (http://www.trevordmiller.com)",
   "license": "MIT",
   "keywords": [
