@@ -97,10 +97,10 @@ let s:nova_purpose_user_action_needed = s:nova_normal_red
 call s:highlight_helper("Error", s:nova_purpose_user_action_needed, "")
 call s:highlight_helper("ErrorMsg", s:nova_purpose_user_action_needed, "")
 call s:highlight_helper("WarningMsg", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("SpellBad", s:nova_normal_black, s:nova_purpose_user_action_needed)
-call s:highlight_helper("SpellCap", s:nova_normal_black, s:nova_purpose_user_action_needed)
-call s:highlight_helper("DiffChange", s:nova_normal_black, s:nova_purpose_user_action_needed)
-call s:highlight_helper("DiffDelete", s:nova_normal_black, s:nova_purpose_user_action_needed)
+call s:highlight_helper("SpellBad", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("SpellCap", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("DiffChange", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("DiffDelete", s:nova_purpose_user_action_needed, "")
 call s:highlight_helper("Todo", s:nova_purpose_user_action_needed, "")
 
 " USER CURRENT STATE
@@ -184,6 +184,7 @@ let s:nova_purpose_statement = s:nova_normal_yellow
 call s:highlight_helper("Statement", s:nova_purpose_statement, "")
 call s:highlight_helper("jsFuncCall", s:nova_purpose_statement, "")
 call s:highlight_helper("jsOperator", s:nova_purpose_statement, "")
+call s:highlight_helper("jsSpreadOperator", s:nova_purpose_statement, "")
 call s:highlight_helper("cssFunctionName", s:nova_purpose_statement, "")
 call s:highlight_helper("cssProp", s:nova_purpose_statement, "")
 call s:highlight_helper("htmlArg", s:nova_purpose_statement, "")
@@ -191,6 +192,7 @@ call s:highlight_helper("jsxRegion", s:nova_purpose_statement, "")
 call s:highlight_helper("xmlTag", s:nova_purpose_statement, "")
 call s:highlight_helper("xmlEndTag", s:nova_purpose_statement, "")
 call s:highlight_helper("xmlTagName", s:nova_purpose_statement, "")
+call s:highlight_helper("xmlEqual", s:nova_purpose_statement, "")
 call s:highlight_helper("shCmdSubRegion", s:nova_purpose_statement, "")
 
 " TYPE
@@ -198,6 +200,7 @@ let s:nova_purpose_type = s:nova_normal_green
 call s:highlight_helper("Type", s:nova_purpose_type, "")
 call s:highlight_helper("jsFunction", s:nova_purpose_type, "")
 call s:highlight_helper("jsStorageClass", s:nova_purpose_type, "")
+call s:highlight_helper("jsNan", s:nova_purpose_type, "")
 call s:highlight_helper("shFunctionKey", s:nova_purpose_type, "")
 
 " GLOBAL
@@ -229,7 +232,6 @@ call s:highlight_helper("jsClassBraces", s:nova_purpose_special, "")
 call s:highlight_helper("jsParens", s:nova_purpose_special, "")
 call s:highlight_helper("jsFuncParens", s:nova_purpose_special, "")
 call s:highlight_helper("jsArrowFunction", s:nova_purpose_special, "")
-call s:highlight_helper("jsSpreadOperator", s:nova_purpose_special, "")
 call s:highlight_helper("jsModuleAsterisk", s:nova_purpose_special, "")
 call s:highlight_helper("cssBraces", s:nova_purpose_special, "")
 call s:highlight_helper("cssBraces", s:nova_purpose_special, "")
