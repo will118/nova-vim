@@ -44,14 +44,33 @@ endfunction
 " RESET
 " ==================================================================
 
+" CORE
 set background=dark
 highlight clear
 set termguicolors
 set fillchars=""
 syntax on
 syntax reset
-let g:colors_name = 'nova'
+let g:colors_name = "nova"
 call s:highlight_helper("Normal", s:nova_normal_white, "")
+
+" NEOVIM TERMINAL MODE
+let g:terminal_color_0 = "${nova.normal.black}"
+let g:terminal_color_1 = "${nova.normal.red}"
+let g:terminal_color_2 = "${nova.normal.green}"
+let g:terminal_color_3 = "${nova.normal.yellow}"
+let g:terminal_color_4 = "${nova.normal.blue}"
+let g:terminal_color_5 = "${nova.normal.magenta}"
+let g:terminal_color_6 = "${nova.normal.cyan}"
+let g:terminal_color_7 = "${nova.normal.white}"
+let g:terminal_color_8 = "${nova.bright.black}"
+let g:terminal_color_9 = "${nova.bright.red}"
+let g:terminal_color_10 = "${nova.normal.green}"
+let g:terminal_color_11 = "${nova.normal.yellow}"
+let g:terminal_color_12 = "${nova.normal.blue}"
+let g:terminal_color_13 = "${nova.bright.magenta}"
+let g:terminal_color_14 = "${nova.normal.cyan}"
+let g:terminal_color_15 = "${nova.bright.white}"
 
 
 " ==================================================================

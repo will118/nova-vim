@@ -43,14 +43,33 @@ endfunction
 " RESET
 " ==================================================================
 
+" CORE
 set background=dark
 highlight clear
 set termguicolors
 set fillchars=""
 syntax on
 syntax reset
-let g:colors_name = 'nova'
+let g:colors_name = "nova"
 call s:highlight_helper("Normal", s:nova_normal_white, "")
+
+" NEOVIM TERMINAL MODE
+let g:terminal_color_0 = "#445660"
+let g:terminal_color_1 = "#DF8C8C"
+let g:terminal_color_2 = "#A8CE93"
+let g:terminal_color_3 = "#DADA93"
+let g:terminal_color_4 = "#83AFE5"
+let g:terminal_color_5 = "#9A93E1"
+let g:terminal_color_6 = "#7FC1CA"
+let g:terminal_color_7 = "#C5D4DD"
+let g:terminal_color_8 = "#899BA6"
+let g:terminal_color_9 = "#F2C38F"
+let g:terminal_color_10 = "#A8CE93"
+let g:terminal_color_11 = "#DADA93"
+let g:terminal_color_12 = "#83AFE5"
+let g:terminal_color_13 = "#D18EC2"
+let g:terminal_color_14 = "#7FC1CA"
+let g:terminal_color_15 = "#E6EEF3"
 
 
 " ==================================================================
