@@ -1,6 +1,6 @@
 {
   "name": "nova-vim",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "scripts": {
     "start": "scripts/start",
     "push": "scripts/push",
@@ -12,7 +12,7 @@
     "watch": "0.19.2"
   },
   "dependencies": {
-    "nova-colors": "1.0.8"
+    "nova-colors": "1.2.0"
   },
   "main": "colors/nova.vim",
   "description": "Nova color scheme plugin for Vim",

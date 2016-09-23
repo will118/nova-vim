@@ -5,7 +5,7 @@
 " ==================================================================
 
 " NORMAL
-let s:nova_normal_black = "#445660"
+let s:nova_normal_black = "#3C4C55"
 let s:nova_normal_red = "#DF8C8C"
 let s:nova_normal_green = "#A8CE93"
 let s:nova_normal_yellow = "#DADA93"
@@ -54,7 +54,7 @@ let g:colors_name = "nova"
 call s:highlight_helper("Normal", s:nova_normal_white, "")
 
 " NEOVIM TERMINAL MODE
-let g:terminal_color_0 = "#445660"
+let g:terminal_color_0 = "#3C4C55"
 let g:terminal_color_1 = "#DF8C8C"
 let g:terminal_color_2 = "#A8CE93"
 let g:terminal_color_3 = "#DADA93"
