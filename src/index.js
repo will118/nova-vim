@@ -89,8 +89,6 @@ call s:highlight_helper("Pmenu", s:nova_normal_white, s:nova_decoration_medium)
 call s:highlight_helper("PmenuSbar", s:nova_bright_black, s:nova_bright_black)
 call s:highlight_helper("DiffText", s:nova_decoration_dark, "")
 call s:highlight_helper("ColorColumn", s:nova_decoration_medium, "")
-call s:highlight_helper("Folded", s:nova_normal_black, s:nova_decoration_medium)
-call s:highlight_helper("FoldColumn", s:nova_normal_black, s:nova_decoration_medium)
 
 " USER ACTION NEEDED
 let s:nova_purpose_user_action_needed = s:nova_normal_red
@@ -109,6 +107,8 @@ call s:highlight_helper("MatchParen", s:nova_purpose_user_current_state, "NONE")
 call s:highlight_helper("CursorLineNr", s:nova_purpose_user_current_state, "")
 call s:highlight_helper("Visual", s:nova_normal_black, s:nova_purpose_user_current_state)
 call s:highlight_helper("VisualNOS", s:nova_normal_black, s:nova_purpose_user_current_state)
+call s:highlight_helper("Folded", s:nova_normal_cyan, "")
+call s:highlight_helper("FoldColumn", s:nova_purpose_user_current_state, "")
 call s:highlight_helper("IncSearch", s:nova_normal_black, s:nova_purpose_user_current_state)
 call s:highlight_helper("Search", s:nova_normal_black, s:nova_purpose_user_current_state)
 call s:highlight_helper("WildMenu", s:nova_decoration_medium, s:nova_purpose_user_current_state)
