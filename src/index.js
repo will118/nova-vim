@@ -1,32 +1,8 @@
 const uiGroups = require('nova-colors').uiGroups
+const syntaxGroups = require('nova-colors').syntaxGroups
 const ansiGroups = require('nova-colors').ansiGroups
 
 const sourceString =`
-" ==================================================================
-" COLORS
-" ==================================================================
-
-" NORMAL
-let s:nova_normal_black = "${ansiGroups.normal.black}"
-let s:nova_normal_red = "${ansiGroups.normal.red}"
-let s:nova_normal_green = "${ansiGroups.normal.green}"
-let s:nova_normal_yellow = "${ansiGroups.normal.yellow}"
-let s:nova_normal_blue = "${ansiGroups.normal.blue}"
-let s:nova_normal_magenta = "${ansiGroups.normal.magenta}"
-let s:nova_normal_cyan = "${ansiGroups.normal.cyan}"
-let s:nova_normal_white = "${ansiGroups.normal.white}"
-
-" BRIGHT
-let s:nova_bright_black = "${ansiGroups.bright.black}"
-let s:nova_bright_red = "${ansiGroups.bright.red}"
-let s:nova_bright_magenta = "${ansiGroups.bright.magenta}"
-let s:nova_bright_white = "${ansiGroups.bright.white}"
-
-" DECORATION
-let s:nova_decoration_dark = "${uiGroups.gray0}"
-let s:nova_decoration_medium = "${uiGroups.gray2}"
-let s:nova_decoration_light = "${uiGroups.gray3}"
-
 
 " ==================================================================
 " HIGHLIGHT HELPER
@@ -36,7 +12,7 @@ function! s:highlight_helper(syntax_group, foreground_color, background_color)
   if a:background_color != ""
     exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=" . a:background_color . " gui=NONE cterm=NONE term=NONE"
   else
-    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=" . s:nova_normal_black . " gui=NONE cterm=NONE term=NONE"
+    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=${uiGroups.background} gui=NONE cterm=NONE term=NONE"
   endif
 endfunction
 
@@ -53,7 +29,7 @@ set fillchars=""
 syntax on
 syntax reset
 let g:colors_name = "nova"
-call s:highlight_helper("Normal", s:nova_normal_white, "")
+call s:highlight_helper("Normal", "${uiGroups.foreground}", "")
 
 " NEOVIM TERMINAL MODE
 let g:terminal_color_0 = "${ansiGroups.normal.black}"
@@ -66,202 +42,197 @@ let g:terminal_color_6 = "${ansiGroups.normal.cyan}"
 let g:terminal_color_7 = "${ansiGroups.normal.white}"
 let g:terminal_color_8 = "${ansiGroups.bright.black}"
 let g:terminal_color_9 = "${ansiGroups.bright.red}"
-let g:terminal_color_10 = "${ansiGroups.normal.green}"
-let g:terminal_color_11 = "${ansiGroups.normal.yellow}"
-let g:terminal_color_12 = "${ansiGroups.normal.blue}"
+let g:terminal_color_10 = "${ansiGroups.bright.green}"
+let g:terminal_color_11 = "${ansiGroups.bright.yellow}"
+let g:terminal_color_12 = "${ansiGroups.bright.blue}"
 let g:terminal_color_13 = "${ansiGroups.bright.magenta}"
-let g:terminal_color_14 = "${ansiGroups.normal.cyan}"
+let g:terminal_color_14 = "${ansiGroups.bright.cyan}"
 let g:terminal_color_15 = "${ansiGroups.bright.white}"
 
 
 " ==================================================================
-" HIGHLIGHT GROUPS BY PURPOSE
+" UI GROUPS
 " ==================================================================
 
-" DECORATION
-call s:highlight_helper("SignColumn", "NONE", "")
-call s:highlight_helper("LineNr", s:nova_decoration_light, "")
-call s:highlight_helper("CursorLine", "NONE", s:nova_decoration_medium)
-call s:highlight_helper("CursorColumn", s:nova_decoration_medium, "")
-call s:highlight_helper("EndOfBuffer", s:nova_decoration_medium, "")
-call s:highlight_helper("VertSplit", s:nova_decoration_medium, s:nova_decoration_medium)
-call s:highlight_helper("StatusLineNC", s:nova_normal_black, s:nova_decoration_medium)
-call s:highlight_helper("Pmenu", s:nova_normal_white, s:nova_decoration_medium)
-call s:highlight_helper("PmenuSbar", s:nova_bright_black, s:nova_bright_black)
-call s:highlight_helper("DiffText", s:nova_decoration_dark, "")
-call s:highlight_helper("ColorColumn", s:nova_decoration_medium, "")
-
 " USER ACTION NEEDED
-let s:nova_purpose_user_action_needed = s:nova_normal_red
-call s:highlight_helper("Error", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("ErrorMsg", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("WarningMsg", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("SpellBad", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("SpellCap", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("DiffChange", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("DiffDelete", s:nova_purpose_user_action_needed, "")
-call s:highlight_helper("Todo", s:nova_purpose_user_action_needed, "")
+call s:highlight_helper("Error", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("ErrorMsg", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("WarningMsg", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("SpellBad", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("SpellCap", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("DiffChange", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("DiffDelete", "${uiGroups.userActionNeeded}", "")
+call s:highlight_helper("Todo", "${uiGroups.userActionNeeded}", "")
 
 " USER CURRENT STATE
-let s:nova_purpose_user_current_state = s:nova_normal_cyan
-call s:highlight_helper("MatchParen", s:nova_purpose_user_current_state, "NONE")
-call s:highlight_helper("CursorLineNr", s:nova_purpose_user_current_state, "")
-call s:highlight_helper("Visual", s:nova_normal_black, s:nova_purpose_user_current_state)
-call s:highlight_helper("VisualNOS", s:nova_normal_black, s:nova_purpose_user_current_state)
-call s:highlight_helper("Folded", s:nova_normal_cyan, "")
-call s:highlight_helper("FoldColumn", s:nova_purpose_user_current_state, "")
-call s:highlight_helper("IncSearch", s:nova_normal_black, s:nova_purpose_user_current_state)
-call s:highlight_helper("Search", s:nova_normal_black, s:nova_purpose_user_current_state)
-call s:highlight_helper("WildMenu", s:nova_decoration_medium, s:nova_purpose_user_current_state)
-call s:highlight_helper("Question", s:nova_purpose_user_current_state, "")
-call s:highlight_helper("MoreMsg", s:nova_purpose_user_current_state, "")
-call s:highlight_helper("ModeMsg", s:nova_purpose_user_current_state, "")
-call s:highlight_helper("StatusLine", s:nova_purpose_user_current_state, s:nova_decoration_medium)
-call s:highlight_helper("PmenuSel", s:nova_decoration_medium, s:nova_purpose_user_current_state)
-call s:highlight_helper("PmenuThumb", s:nova_purpose_user_current_state, s:nova_purpose_user_current_state)
-call s:highlight_helper("DiffAdd", s:nova_normal_black, s:nova_purpose_user_current_state)
-call s:highlight_helper("CtrlPMatch", s:nova_normal_black, s:nova_purpose_user_current_state)
+call s:highlight_helper("MatchParen", "${uiGroups.userCurrentState}", "NONE")
+call s:highlight_helper("CursorLineNr", "${uiGroups.userCurrentState}", "")
+call s:highlight_helper("Visual", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("VisualNOS", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("Folded", "${uiGroups.userCurrentState}", "")
+call s:highlight_helper("FoldColumn", "${uiGroups.userCurrentState}", "")
+call s:highlight_helper("IncSearch", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("Search", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("WildMenu", "${uiGroups.gray2}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("Question", "${uiGroups.userCurrentState}", "")
+call s:highlight_helper("MoreMsg", "${uiGroups.userCurrentState}", "")
+call s:highlight_helper("ModeMsg", "${uiGroups.userCurrentState}", "")
+call s:highlight_helper("StatusLine", "${uiGroups.userCurrentState}", "${uiGroups.gray2}")
+call s:highlight_helper("PmenuSel", "${uiGroups.gray2}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("PmenuThumb", "${uiGroups.userCurrentState}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("DiffAdd", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+call s:highlight_helper("CtrlPMatch", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+
+" OTHER
+call s:highlight_helper("SignColumn", "NONE", "")
+call s:highlight_helper("LineNr", "${uiGroups.gray3}", "")
+call s:highlight_helper("CursorLine", "NONE", "${uiGroups.gray2}")
+call s:highlight_helper("CursorColumn", "${uiGroups.gray2}", "")
+call s:highlight_helper("EndOfBuffer", "${uiGroups.gray2}", "")
+call s:highlight_helper("VertSplit", "${uiGroups.gray2}", "${uiGroups.gray2}")
+call s:highlight_helper("StatusLineNC", "${uiGroups.background}", "${uiGroups.gray2}")
+call s:highlight_helper("Pmenu", "${uiGroups.foreground}", "${uiGroups.gray2}")
+call s:highlight_helper("PmenuSbar", "${uiGroups.gray4}", "${uiGroups.gray4}")
+call s:highlight_helper("DiffText", "${uiGroups.gray0}", "")
+call s:highlight_helper("ColorColumn", "${uiGroups.gray2}", "")
+
+
+" ==================================================================
+" SYNTAX GROUPS
+" ==================================================================
 
 " CONSTANT
-let s:nova_purpose_constant = s:nova_normal_cyan
-call s:highlight_helper("Constant", s:nova_purpose_constant, "")
-call s:highlight_helper("Directory", s:nova_purpose_constant, "")
-call s:highlight_helper("jsObjectBraces", s:nova_purpose_constant, "")
-call s:highlight_helper("jsBrackets", s:nova_purpose_constant, "")
-call s:highlight_helper("jsObjectValue", s:nova_purpose_constant, "")
-call s:highlight_helper("jsParen", s:nova_purpose_constant, "")
-call s:highlight_helper("jsParenSwitch", s:nova_purpose_constant, "")
-call s:highlight_helper("jsParenIfElse", s:nova_purpose_constant, "")
-call s:highlight_helper("jsBracket", s:nova_purpose_constant, "")
-call s:highlight_helper("jsTernaryIf", s:nova_purpose_constant, "")
-call s:highlight_helper("jsTemplateString", s:nova_purpose_constant, "")
-call s:highlight_helper("jsTemplateVar", s:nova_purpose_constant, "")
-call s:highlight_helper("cssAttr", s:nova_purpose_constant, "")
-call s:highlight_helper("cssAttrRegion", s:nova_purpose_constant, "")
-call s:highlight_helper("cssAttributeSelector", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlTitle", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlH1", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlH2", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlH3", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlH4", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlH5", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlH6", s:nova_purpose_constant, "")
-call s:highlight_helper("htmlLink", s:nova_purpose_constant, "")
-call s:highlight_helper("markdownCode", s:nova_purpose_constant, "")
-call s:highlight_helper("markdownCodeBlock", s:nova_purpose_constant, "")
-call s:highlight_helper("xmlString", s:nova_purpose_constant, "")
-call s:highlight_helper("netrwPlain", s:nova_purpose_constant, "")
-call s:highlight_helper("netrwDir", s:nova_purpose_constant, "")
-call s:highlight_helper("shDerefSimple", s:nova_purpose_constant, "")
+call s:highlight_helper("Constant", "${syntaxGroups.constant}", "")
+call s:highlight_helper("Directory", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsObjectBraces", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsBrackets", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsObjectValue", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsParen", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsParenSwitch", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsParenIfElse", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsBracket", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsTernaryIf", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsTemplateString", "${syntaxGroups.constant}", "")
+call s:highlight_helper("jsTemplateVar", "${syntaxGroups.constant}", "")
+call s:highlight_helper("cssAttr", "${syntaxGroups.constant}", "")
+call s:highlight_helper("cssAttrRegion", "${syntaxGroups.constant}", "")
+call s:highlight_helper("cssAttributeSelector", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlTitle", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlH1", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlH2", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlH3", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlH4", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlH5", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlH6", "${syntaxGroups.constant}", "")
+call s:highlight_helper("htmlLink", "${syntaxGroups.constant}", "")
+call s:highlight_helper("markdownCode", "${syntaxGroups.constant}", "")
+call s:highlight_helper("markdownCodeBlock", "${syntaxGroups.constant}", "")
+call s:highlight_helper("xmlString", "${syntaxGroups.constant}", "")
+call s:highlight_helper("netrwPlain", "${syntaxGroups.constant}", "")
+call s:highlight_helper("netrwDir", "${syntaxGroups.constant}", "")
+call s:highlight_helper("shDerefSimple", "${syntaxGroups.constant}", "")
 
 " IDENTIFIER
-let s:nova_purpose_identifier = s:nova_normal_blue
-call s:highlight_helper("Identifier", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsVariableDef", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsObject", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsObjectKey", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsObjectStringKey", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsFuncArgs", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsDestructuringBlock", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsDestructuringArray", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsDestructuringPropertyValue", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsSpreadExpression", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsImportContainer", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsExportContainer", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsModuleGroup", s:nova_purpose_identifier, "")
-call s:highlight_helper("cssClassName", s:nova_purpose_identifier, "")
-call s:highlight_helper("cssIdentifier", s:nova_purpose_identifier, "")
-call s:highlight_helper("htmlTagName", s:nova_purpose_identifier, "")
-call s:highlight_helper("htmlSpecialTagName", s:nova_purpose_identifier, "")
-call s:highlight_helper("htmlTag", s:nova_purpose_identifier, "")
-call s:highlight_helper("htmlEndTag", s:nova_purpose_identifier, "")
-call s:highlight_helper("jsonKeyword", s:nova_purpose_identifier, "")
-call s:highlight_helper("xmlAttrib", s:nova_purpose_identifier, "")
-call s:highlight_helper("netrwExe", s:nova_purpose_identifier, "")
-call s:highlight_helper("shFunction", s:nova_purpose_identifier, "")
+call s:highlight_helper("Identifier", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsVariableDef", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsObject", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsObjectKey", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsObjectStringKey", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsFuncArgs", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsDestructuringBlock", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsDestructuringArray", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsDestructuringPropertyValue", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsSpreadExpression", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsImportContainer", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsExportContainer", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsModuleGroup", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("cssClassName", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("cssIdentifier", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("htmlTagName", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("htmlSpecialTagName", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("htmlTag", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("htmlEndTag", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("jsonKeyword", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("xmlAttrib", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("netrwExe", "${syntaxGroups.identifier}", "")
+call s:highlight_helper("shFunction", "${syntaxGroups.identifier}", "")
 
 " STATEMENT
-let s:nova_purpose_statement = s:nova_normal_yellow
-call s:highlight_helper("Statement", s:nova_purpose_statement, "")
-call s:highlight_helper("jsFuncCall", s:nova_purpose_statement, "")
-call s:highlight_helper("jsOperator", s:nova_purpose_statement, "")
-call s:highlight_helper("jsSpreadOperator", s:nova_purpose_statement, "")
-call s:highlight_helper("cssFunctionName", s:nova_purpose_statement, "")
-call s:highlight_helper("cssProp", s:nova_purpose_statement, "")
-call s:highlight_helper("htmlArg", s:nova_purpose_statement, "")
-call s:highlight_helper("jsxRegion", s:nova_purpose_statement, "")
-call s:highlight_helper("xmlTag", s:nova_purpose_statement, "")
-call s:highlight_helper("xmlEndTag", s:nova_purpose_statement, "")
-call s:highlight_helper("xmlTagName", s:nova_purpose_statement, "")
-call s:highlight_helper("xmlEqual", s:nova_purpose_statement, "")
-call s:highlight_helper("shCmdSubRegion", s:nova_purpose_statement, "")
+call s:highlight_helper("Statement", "${syntaxGroups.statement}", "")
+call s:highlight_helper("jsFuncCall", "${syntaxGroups.statement}", "")
+call s:highlight_helper("jsOperator", "${syntaxGroups.statement}", "")
+call s:highlight_helper("jsSpreadOperator", "${syntaxGroups.statement}", "")
+call s:highlight_helper("cssFunctionName", "${syntaxGroups.statement}", "")
+call s:highlight_helper("cssProp", "${syntaxGroups.statement}", "")
+call s:highlight_helper("htmlArg", "${syntaxGroups.statement}", "")
+call s:highlight_helper("jsxRegion", "${syntaxGroups.statement}", "")
+call s:highlight_helper("xmlTag", "${syntaxGroups.statement}", "")
+call s:highlight_helper("xmlEndTag", "${syntaxGroups.statement}", "")
+call s:highlight_helper("xmlTagName", "${syntaxGroups.statement}", "")
+call s:highlight_helper("xmlEqual", "${syntaxGroups.statement}", "")
+call s:highlight_helper("shCmdSubRegion", "${syntaxGroups.statement}", "")
 
 " TYPE
-let s:nova_purpose_type = s:nova_normal_green
-call s:highlight_helper("Type", s:nova_purpose_type, "")
-call s:highlight_helper("jsFunction", s:nova_purpose_type, "")
-call s:highlight_helper("jsStorageClass", s:nova_purpose_type, "")
-call s:highlight_helper("jsNan", s:nova_purpose_type, "")
-call s:highlight_helper("shFunctionKey", s:nova_purpose_type, "")
+call s:highlight_helper("Type", "${syntaxGroups.type}", "")
+call s:highlight_helper("jsFunction", "${syntaxGroups.type}", "")
+call s:highlight_helper("jsStorageClass", "${syntaxGroups.type}", "")
+call s:highlight_helper("jsNan", "${syntaxGroups.type}", "")
+call s:highlight_helper("shFunctionKey", "${syntaxGroups.type}", "")
 
 " GLOBAL
-let s:nova_purpose_global = s:nova_normal_magenta
-call s:highlight_helper("PreProc", s:nova_purpose_global, "")
-call s:highlight_helper("jsGlobalObjects", s:nova_purpose_global, "")
-call s:highlight_helper("jsThis", s:nova_purpose_global, "")
-call s:highlight_helper("cssTagName", s:nova_purpose_global, "")
-call s:highlight_helper("jsGlobalNodeObjects", s:nova_purpose_global, "")
-call s:highlight_helper("cssFontDescriptor", s:nova_purpose_global, "")
+call s:highlight_helper("PreProc", "${syntaxGroups.global}", "")
+call s:highlight_helper("jsGlobalObjects", "${syntaxGroups.global}", "")
+call s:highlight_helper("jsThis", "${syntaxGroups.global}", "")
+call s:highlight_helper("cssTagName", "${syntaxGroups.global}", "")
+call s:highlight_helper("jsGlobalNodeObjects", "${syntaxGroups.global}", "")
+call s:highlight_helper("cssFontDescriptor", "${syntaxGroups.global}", "")
 
 " EMPHASIS
-let s:nova_purpose_emphasis = s:nova_bright_magenta
-call s:highlight_helper("Underlined", s:nova_purpose_emphasis, "")
-call s:highlight_helper("markdownItalic", s:nova_purpose_emphasis, "")
-call s:highlight_helper("markdownBold", s:nova_purpose_emphasis, "")
-call s:highlight_helper("markdownBoldItalic", s:nova_purpose_emphasis, "")
+call s:highlight_helper("Underlined", "${syntaxGroups.emphasis}", "")
+call s:highlight_helper("markdownItalic", "${syntaxGroups.emphasis}", "")
+call s:highlight_helper("markdownBold", "${syntaxGroups.emphasis}", "")
+call s:highlight_helper("markdownBoldItalic", "${syntaxGroups.emphasis}", "")
 
 " SPECIAL
-let s:nova_purpose_special = s:nova_bright_red
-call s:highlight_helper("Special", s:nova_purpose_special, "")
-call s:highlight_helper("SpecialKey", s:nova_purpose_special, "")
-call s:highlight_helper("NonText", s:nova_purpose_special, "")
-call s:highlight_helper("Title", s:nova_purpose_special, "")
-call s:highlight_helper("jsBraces", s:nova_purpose_special, "")
-call s:highlight_helper("jsFuncBraces", s:nova_purpose_special, "")
-call s:highlight_helper("jsDestructuringBraces", s:nova_purpose_special, "")
-call s:highlight_helper("jsClassBraces", s:nova_purpose_special, "")
-call s:highlight_helper("jsParens", s:nova_purpose_special, "")
-call s:highlight_helper("jsFuncParens", s:nova_purpose_special, "")
-call s:highlight_helper("jsArrowFunction", s:nova_purpose_special, "")
-call s:highlight_helper("jsModuleAsterisk", s:nova_purpose_special, "")
-call s:highlight_helper("cssBraces", s:nova_purpose_special, "")
-call s:highlight_helper("cssBraces", s:nova_purpose_special, "")
-call s:highlight_helper("markdownHeadingDelimiter", s:nova_purpose_special, "")
-call s:highlight_helper("markdownH1", s:nova_purpose_special, "")
-call s:highlight_helper("markdownH2", s:nova_purpose_special, "")
-call s:highlight_helper("markdownH3", s:nova_purpose_special, "")
-call s:highlight_helper("markdownH4", s:nova_purpose_special, "")
-call s:highlight_helper("markdownH5", s:nova_purpose_special, "")
-call s:highlight_helper("markdownH6", s:nova_purpose_special, "")
-call s:highlight_helper("markdownRule", s:nova_purpose_special, "")
-call s:highlight_helper("markdownListMarker", s:nova_purpose_special, "")
-call s:highlight_helper("markdownOrderedListMarker", s:nova_purpose_special, "")
-call s:highlight_helper("markdownLinkText", s:nova_purpose_special, "")
-call s:highlight_helper("markdownCodeDelimiter", s:nova_purpose_special, "")
-call s:highlight_helper("netrwClassify", s:nova_purpose_special, "")
-call s:highlight_helper("netrwVersion", s:nova_purpose_special, "")
-call s:highlight_helper("CtrlPStats", s:nova_purpose_special, "")
+call s:highlight_helper("Special", "${syntaxGroups.special}", "")
+call s:highlight_helper("SpecialKey", "${syntaxGroups.special}", "")
+call s:highlight_helper("NonText", "${syntaxGroups.special}", "")
+call s:highlight_helper("Title", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsBraces", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsFuncBraces", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsDestructuringBraces", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsClassBraces", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsParens", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsFuncParens", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsArrowFunction", "${syntaxGroups.special}", "")
+call s:highlight_helper("jsModuleAsterisk", "${syntaxGroups.special}", "")
+call s:highlight_helper("cssBraces", "${syntaxGroups.special}", "")
+call s:highlight_helper("cssBraces", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownHeadingDelimiter", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownH1", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownH2", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownH3", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownH4", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownH5", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownH6", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownRule", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownListMarker", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownOrderedListMarker", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownLinkText", "${syntaxGroups.special}", "")
+call s:highlight_helper("markdownCodeDelimiter", "${syntaxGroups.special}", "")
+call s:highlight_helper("netrwClassify", "${syntaxGroups.special}", "")
+call s:highlight_helper("netrwVersion", "${syntaxGroups.special}", "")
+call s:highlight_helper("CtrlPStats", "${syntaxGroups.special}", "")
 
 " TRIVIAL
-let s:nova_purpose_trivial = s:nova_bright_black
-call s:highlight_helper("Comment", s:nova_purpose_trivial, "")
-call s:highlight_helper("Ignore", s:nova_purpose_trivial, "")
-call s:highlight_helper("Conceal", s:nova_purpose_trivial, "")
-call s:highlight_helper("Noise", s:nova_purpose_trivial, "")
-call s:highlight_helper("jsNoise", s:nova_purpose_trivial, "")
-call s:highlight_helper("cssClassNameDot", s:nova_purpose_trivial, "")
-call s:highlight_helper("jsonQuote", s:nova_purpose_trivial, "")
-call s:highlight_helper("shQuote", s:nova_purpose_trivial, "")
+call s:highlight_helper("Comment", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("Ignore", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("Conceal", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("Noise", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("jsNoise", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("cssClassNameDot", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("jsonQuote", "${syntaxGroups.trivial}", "")
+call s:highlight_helper("shQuote", "${syntaxGroups.trivial}", "")
 `
 
 process.stdout.write(sourceString)
