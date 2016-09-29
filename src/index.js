@@ -29,7 +29,7 @@ set fillchars=""
 syntax on
 syntax reset
 let g:colors_name = "nova"
-call s:highlight_helper("Normal", "${uiGroups.gray5}", "")
+call s:highlight_helper("Normal", "${uiGroups.foreground}", "")
 
 " NEOVIM TERMINAL MODE
 let g:terminal_color_0 = "${ansiGroups.normal.black}"
@@ -91,7 +91,7 @@ call s:highlight_helper("CursorColumn", "${uiGroups.gray2}", "")
 call s:highlight_helper("EndOfBuffer", "${uiGroups.gray2}", "")
 call s:highlight_helper("VertSplit", "${uiGroups.gray2}", "${uiGroups.gray2}")
 call s:highlight_helper("StatusLineNC", "${uiGroups.background}", "${uiGroups.gray2}")
-call s:highlight_helper("Pmenu", "${uiGroups.gray5}", "${uiGroups.gray2}")
+call s:highlight_helper("Pmenu", "${uiGroups.foreground}", "${uiGroups.gray2}")
 call s:highlight_helper("PmenuSbar", "${uiGroups.gray4}", "${uiGroups.gray4}")
 call s:highlight_helper("DiffText", "${uiGroups.gray0}", "")
 call s:highlight_helper("ColorColumn", "${uiGroups.gray2}", "")
