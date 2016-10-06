@@ -12,3 +12,4 @@ git commit || true
 npm version $1
 git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 git push --tags
+rm ~/.vim/colors/nova.vim
