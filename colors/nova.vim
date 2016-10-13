@@ -5,12 +5,13 @@
 " HIGHLIGHT HELPER
 " ==================================================================
 
-function! s:highlight_helper(syntax_group, foreground_color, background_color)
-  if a:background_color != ""
-    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=" . a:background_color . " gui=NONE cterm=NONE term=NONE"
-  else
-    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=#3C4C55 gui=NONE cterm=NONE term=NONE"
-  endif
+function! s:highlight_helper(...)
+  let l:syntax_group = a:1
+  let l:foreground_color = a:2
+  let l:background_color = empty(a:3) ? "#3C4C55" : a:3
+  let l:gui = a:0 == 3 ? "None" : a:4
+
+  exec "highlight " . l:syntax_group . " guifg=" . l:foreground_color . " guibg=" . l:background_color . " gui=" . l:gui . " cterm=NONE term=NONE"
 endfunction
 
 
@@ -56,8 +57,6 @@ call s:highlight_helper("ErrorMsg", "#DF8C8C", "")
 call s:highlight_helper("WarningMsg", "#DF8C8C", "")
 call s:highlight_helper("SpellBad", "#DF8C8C", "")
 call s:highlight_helper("SpellCap", "#DF8C8C", "")
-call s:highlight_helper("DiffChange", "#DF8C8C", "")
-call s:highlight_helper("DiffDelete", "#DF8C8C", "")
 call s:highlight_helper("Todo", "#DF8C8C", "")
 
 " USER CURRENT STATE
@@ -76,8 +75,13 @@ call s:highlight_helper("ModeMsg", "#7FC1CA", "")
 call s:highlight_helper("StatusLine", "#7FC1CA", "#556873")
 call s:highlight_helper("PmenuSel", "#556873", "#7FC1CA")
 call s:highlight_helper("PmenuThumb", "#7FC1CA", "#7FC1CA")
-call s:highlight_helper("DiffAdd", "#3C4C55", "#7FC1CA")
 call s:highlight_helper("CtrlPMatch", "#3C4C55", "#7FC1CA")
+
+" GIT
+call s:highlight_helper("DiffAdd", "#3C4C55", "#A8CE93")
+call s:highlight_helper("DiffChange", "#3C4C55", "#F2C38F")
+call s:highlight_helper("DiffDelete", "#DF8C8C", "")
+call s:highlight_helper("DiffText", "#3C4C55", "#F2C38F", "BOLD")
 
 " OTHER
 call s:highlight_helper("SignColumn", "NONE", "")
@@ -89,7 +93,6 @@ call s:highlight_helper("VertSplit", "#556873", "#556873")
 call s:highlight_helper("StatusLineNC", "#3C4C55", "#556873")
 call s:highlight_helper("Pmenu", "#C5D4DD", "#556873")
 call s:highlight_helper("PmenuSbar", "#899BA6", "#899BA6")
-call s:highlight_helper("DiffText", "#1E272C", "")
 call s:highlight_helper("ColorColumn", "#556873", "")
 
 

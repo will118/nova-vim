@@ -9,12 +9,13 @@ const sourceString =`
 " HIGHLIGHT HELPER
 " ==================================================================
 
-function! s:highlight_helper(syntax_group, foreground_color, background_color)
-  if a:background_color != ""
-    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=" . a:background_color . " gui=NONE cterm=NONE term=NONE"
-  else
-    exec "highlight " . a:syntax_group . " guifg=" . a:foreground_color . " guibg=${uiGroups.background} gui=NONE cterm=NONE term=NONE"
-  endif
+function! s:highlight_helper(...)
+  let l:syntax_group = a:1
+  let l:foreground_color = a:2
+  let l:background_color = empty(a:3) ? "${uiGroups.background}" : a:3
+  let l:gui = a:0 == 3 ? "None" : a:4
+
+  exec "highlight " . l:syntax_group . " guifg=" . l:foreground_color . " guibg=" . l:background_color . " gui=" . l:gui . " cterm=NONE term=NONE"
 endfunction
 
 
@@ -60,8 +61,6 @@ call s:highlight_helper("ErrorMsg", "${uiGroups.userActionNeeded}", "")
 call s:highlight_helper("WarningMsg", "${uiGroups.userActionNeeded}", "")
 call s:highlight_helper("SpellBad", "${uiGroups.userActionNeeded}", "")
 call s:highlight_helper("SpellCap", "${uiGroups.userActionNeeded}", "")
-call s:highlight_helper("DiffChange", "${uiGroups.userActionNeeded}", "")
-call s:highlight_helper("DiffDelete", "${uiGroups.userActionNeeded}", "")
 call s:highlight_helper("Todo", "${uiGroups.userActionNeeded}", "")
 
 " USER CURRENT STATE
@@ -80,8 +79,13 @@ call s:highlight_helper("ModeMsg", "${uiGroups.userCurrentState}", "")
 call s:highlight_helper("StatusLine", "${uiGroups.userCurrentState}", "${uiGroups.gray2}")
 call s:highlight_helper("PmenuSel", "${uiGroups.gray2}", "${uiGroups.userCurrentState}")
 call s:highlight_helper("PmenuThumb", "${uiGroups.userCurrentState}", "${uiGroups.userCurrentState}")
-call s:highlight_helper("DiffAdd", "${uiGroups.background}", "${uiGroups.userCurrentState}")
 call s:highlight_helper("CtrlPMatch", "${uiGroups.background}", "${uiGroups.userCurrentState}")
+
+" GIT
+call s:highlight_helper("DiffAdd", "${uiGroups.background}", "${versionControlGroups.added}")
+call s:highlight_helper("DiffChange", "${uiGroups.background}", "${versionControlGroups.modified}")
+call s:highlight_helper("DiffDelete", "${versionControlGroups.removed}", "")
+call s:highlight_helper("DiffText", "${uiGroups.background}", "${versionControlGroups.modified}", "BOLD")
 
 " OTHER
 call s:highlight_helper("SignColumn", "NONE", "")
@@ -93,7 +97,6 @@ call s:highlight_helper("VertSplit", "${uiGroups.gray2}", "${uiGroups.gray2}")
 call s:highlight_helper("StatusLineNC", "${uiGroups.background}", "${uiGroups.gray2}")
 call s:highlight_helper("Pmenu", "${uiGroups.foreground}", "${uiGroups.gray2}")
 call s:highlight_helper("PmenuSbar", "${uiGroups.gray4}", "${uiGroups.gray4}")
-call s:highlight_helper("DiffText", "${uiGroups.gray0}", "")
 call s:highlight_helper("ColorColumn", "${uiGroups.gray2}", "")
 
 
