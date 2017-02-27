@@ -6,10 +6,10 @@ release_type=$1
 echo "Pulling latest"
 git pull
 
-echo"Bumping version"
+echo "Bumping version"
 npm version "$release_type" -m "Release %s"
 
-echo"Pushing"
+echo "Pushing"
 git push --set-upstream origin master
 git push --tags
 
