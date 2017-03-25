@@ -1,8 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-release_type=$1
-
 echo "Pulling latest"
 git pull
 
