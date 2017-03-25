@@ -7,7 +7,7 @@ echo "Pulling latest"
 git pull
 
 echo "Bumping version"
-npm version "$release_type" -m "Release %s"
+yarn version
 
 echo "Pushing"
 git push --set-upstream origin master
