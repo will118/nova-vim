@@ -51,6 +51,7 @@ let g:terminal_color_13 = "${ansiGroups.bright.magenta}"
 let g:terminal_color_14 = "${ansiGroups.bright.cyan}"
 let g:terminal_color_15 = "${ansiGroups.bright.white}"
 
+
 " ==================================================================
 " UI GROUPS
 " ==================================================================
@@ -65,7 +66,6 @@ call s:highlight_helper("Todo", "${uiGroups.userActionNeeded}", "")
 call s:highlight_helper("NeomakeErrorSign", "${uiGroups.userActionNeeded}", "")
 call s:highlight_helper("NeomakeWarningSign", "${uiGroups.userActionNeeded}", "")
 
-
 " USER CURRENT STATE
 call s:highlight_helper("MatchParen", "${uiGroups.userCurrentState}", "NONE")
 call s:highlight_helper("CursorLineNr", "${uiGroups.userCurrentState}", "")
@@ -73,8 +73,8 @@ call s:highlight_helper("Visual", "${uiGroups.background}", "${uiGroups.userCurr
 call s:highlight_helper("VisualNOS", "${uiGroups.background}", "${uiGroups.userCurrentState}")
 call s:highlight_helper("Folded", "${uiGroups.userCurrentState}", "")
 call s:highlight_helper("FoldColumn", "${uiGroups.userCurrentState}", "")
-call s:highlight_helper("IncSearch", "${uiGroups.userCurrentState}", "${uiGroups.gray3}")
-call s:highlight_helper("Search", "${uiGroups.userCurrentState}", "${uiGroups.gray3}")
+call s:highlight_helper("IncSearch", "${uiGroups.userCurrentState}", "${uiGroups.backgroundShade}")
+call s:highlight_helper("Search", "${uiGroups.userCurrentState}", "${uiGroups.backgroundShade}")
 call s:highlight_helper("WildMenu", "${uiGroups.gray2}", "${uiGroups.userCurrentState}")
 call s:highlight_helper("Question", "${uiGroups.userCurrentState}", "")
 call s:highlight_helper("MoreMsg", "${uiGroups.userCurrentState}", "")
@@ -239,6 +239,7 @@ call s:highlight_helper("jsNoise", "${syntaxGroups.trivial}", "")
 call s:highlight_helper("cssClassNameDot", "${syntaxGroups.trivial}", "")
 call s:highlight_helper("jsonQuote", "${syntaxGroups.trivial}", "")
 call s:highlight_helper("shQuote", "${syntaxGroups.trivial}", "")
+
 
 " ==================================================================
 " COMMON PLUGINS

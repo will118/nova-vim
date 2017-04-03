@@ -47,6 +47,7 @@ let g:terminal_color_13 = "#D18EC2"
 let g:terminal_color_14 = "#7FC1CA"
 let g:terminal_color_15 = "#E6EEF3"
 
+
 " ==================================================================
 " UI GROUPS
 " ==================================================================
@@ -61,7 +62,6 @@ call s:highlight_helper("Todo", "#DF8C8C", "")
 call s:highlight_helper("NeomakeErrorSign", "#DF8C8C", "")
 call s:highlight_helper("NeomakeWarningSign", "#DF8C8C", "")
 
-
 " USER CURRENT STATE
 call s:highlight_helper("MatchParen", "#7FC1CA", "NONE")
 call s:highlight_helper("CursorLineNr", "#7FC1CA", "")
@@ -69,8 +69,8 @@ call s:highlight_helper("Visual", "#3C4C55", "#7FC1CA")
 call s:highlight_helper("VisualNOS", "#3C4C55", "#7FC1CA")
 call s:highlight_helper("Folded", "#7FC1CA", "")
 call s:highlight_helper("FoldColumn", "#7FC1CA", "")
-call s:highlight_helper("IncSearch", "#7FC1CA", "#6A7D89")
-call s:highlight_helper("Search", "#7FC1CA", "#6A7D89")
+call s:highlight_helper("IncSearch", "#7FC1CA", "#1E272C")
+call s:highlight_helper("Search", "#7FC1CA", "#1E272C")
 call s:highlight_helper("WildMenu", "#556873", "#7FC1CA")
 call s:highlight_helper("Question", "#7FC1CA", "")
 call s:highlight_helper("MoreMsg", "#7FC1CA", "")
@@ -235,6 +235,7 @@ call s:highlight_helper("jsNoise", "#899BA6", "")
 call s:highlight_helper("cssClassNameDot", "#899BA6", "")
 call s:highlight_helper("jsonQuote", "#899BA6", "")
 call s:highlight_helper("shQuote", "#899BA6", "")
+
 
 " ==================================================================
 " COMMON PLUGINS
