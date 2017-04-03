@@ -8,7 +8,7 @@
 function! s:highlight_helper(...)
   let l:syntax_group = a:1
   let l:foreground_color = a:2
-  let l:background_color = empty(a:3) ? "#3C4C55" : a:3
+  let l:background_color = empty(a:3) ? "#2c2c2c" : a:3
   let l:gui = a:0 == 3 ? "None" : a:4
 
   exec "highlight " . l:syntax_group . " guifg=" . l:foreground_color . " guibg=" . l:background_color . " gui=" . l:gui . " cterm=NONE term=NONE"
@@ -30,7 +30,7 @@ let g:colors_name = "nova"
 call s:highlight_helper("Normal", "#C5D4DD", "")
 
 " NEOVIM TERMINAL MODE
-let g:terminal_color_0 = "#3C4C55"
+let g:terminal_color_0 = "#2c2c2c"
 let g:terminal_color_1 = "#DF8C8C"
 let g:terminal_color_2 = "#A8CE93"
 let g:terminal_color_3 = "#DADA93"
@@ -96,7 +96,7 @@ call s:highlight_helper("VertSplit", "#556873", "#556873")
 call s:highlight_helper("StatusLineNC", "#3C4C55", "#556873")
 call s:highlight_helper("Pmenu", "#C5D4DD", "#556873")
 call s:highlight_helper("PmenuSbar", "#899BA6", "#899BA6")
-call s:highlight_helper("ColorColumn", "#556873", "")
+call s:highlight_helper("ColorColumn", "#798f9c", "#525252")
 
 
 " ==================================================================
