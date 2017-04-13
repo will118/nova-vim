@@ -8,7 +8,7 @@
 function! s:highlight_helper(...)
   let l:syntax_group = a:1
   let l:foreground_color = a:2
-  let l:background_color = empty(a:3) ? "#2c2c2c" : a:3
+  let l:background_color = empty(a:3) ? "#2C2C2C" : a:3
   let l:gui = a:0 == 3 ? "None" : a:4
 
   exec "highlight " . l:syntax_group . " guifg=" . l:foreground_color . " guibg=" . l:background_color . " gui=" . l:gui . " cterm=NONE term=NONE"
@@ -30,7 +30,7 @@ let g:colors_name = "nova"
 call s:highlight_helper("Normal", "#C5D4DD", "")
 
 " NEOVIM TERMINAL MODE
-let g:terminal_color_0 = "#2c2c2c"
+let g:terminal_color_0 = "#2C2C2C"
 let g:terminal_color_1 = "#DF8C8C"
 let g:terminal_color_2 = "#A8CE93"
 let g:terminal_color_3 = "#DADA93"
@@ -47,7 +47,6 @@ let g:terminal_color_13 = "#D18EC2"
 let g:terminal_color_14 = "#7FC1CA"
 let g:terminal_color_15 = "#E6EEF3"
 
-
 " ==================================================================
 " UI GROUPS
 " ==================================================================
@@ -62,15 +61,16 @@ call s:highlight_helper("Todo", "#DF8C8C", "")
 call s:highlight_helper("NeomakeErrorSign", "#DF8C8C", "")
 call s:highlight_helper("NeomakeWarningSign", "#DF8C8C", "")
 
+
 " USER CURRENT STATE
 call s:highlight_helper("MatchParen", "#7FC1CA", "NONE")
 call s:highlight_helper("CursorLineNr", "#7FC1CA", "")
-call s:highlight_helper("Visual", "#2c2c2c", "#7FC1CA")
-call s:highlight_helper("VisualNOS", "#2c2c2c", "#7FC1CA")
+call s:highlight_helper("Visual", "#2C2C2C", "#7FC1CA")
+call s:highlight_helper("VisualNOS", "#2C2C2C", "#7FC1CA")
 call s:highlight_helper("Folded", "#7FC1CA", "")
 call s:highlight_helper("FoldColumn", "#7FC1CA", "")
-call s:highlight_helper("IncSearch", "#7FC1CA", "#1E272C")
-call s:highlight_helper("Search", "#7FC1CA", "#1E272C")
+call s:highlight_helper("IncSearch", "#7FC1CA", "#6A7D89")
+call s:highlight_helper("Search", "#7FC1CA", "#6A7D89")
 call s:highlight_helper("WildMenu", "#556873", "#7FC1CA")
 call s:highlight_helper("Question", "#7FC1CA", "")
 call s:highlight_helper("MoreMsg", "#7FC1CA", "")
@@ -78,25 +78,25 @@ call s:highlight_helper("ModeMsg", "#7FC1CA", "")
 call s:highlight_helper("StatusLine", "#7FC1CA", "#556873")
 call s:highlight_helper("PmenuSel", "#556873", "#7FC1CA")
 call s:highlight_helper("PmenuThumb", "#7FC1CA", "#7FC1CA")
-call s:highlight_helper("CtrlPMatch", "#2c2c2c", "#7FC1CA")
+call s:highlight_helper("CtrlPMatch", "#2C2C2C", "#7FC1CA")
 
 " GIT
-call s:highlight_helper("DiffAdd", "#2c2c2c", "#A8CE93")
-call s:highlight_helper("DiffChange", "#2c2c2c", "#F2C38F")
+call s:highlight_helper("DiffAdd", "#2C2C2C", "#A8CE93")
+call s:highlight_helper("DiffChange", "#2C2C2C", "#F2C38F")
 call s:highlight_helper("DiffDelete", "#DF8C8C", "")
-call s:highlight_helper("DiffText", "#2c2c2c", "#F2C38F", "BOLD")
+call s:highlight_helper("DiffText", "#2C2C2C", "#F2C38F", "BOLD")
 
 " OTHER
 call s:highlight_helper("SignColumn", "NONE", "")
 call s:highlight_helper("LineNr", "#6A7D89", "")
 call s:highlight_helper("CursorLine", "NONE", "#556873")
 call s:highlight_helper("CursorColumn", "#556873", "")
-call s:highlight_helper("EndOfBuffer", "#556873", "")
+call s:highlight_helper("EndOfBuffer", "#2C2C2C", "")
 call s:highlight_helper("VertSplit", "#556873", "#556873")
-call s:highlight_helper("StatusLineNC", "#2c2c2c", "#556873")
+call s:highlight_helper("StatusLineNC", "#2C2C2C", "#556873")
 call s:highlight_helper("Pmenu", "#C5D4DD", "#556873")
 call s:highlight_helper("PmenuSbar", "#899BA6", "#899BA6")
-call s:highlight_helper("ColorColumn", "#798f9c", "#525252")
+call s:highlight_helper("ColorColumn", "#556873", "")
 
 
 " ==================================================================
@@ -236,7 +236,6 @@ call s:highlight_helper("cssClassNameDot", "#899BA6", "")
 call s:highlight_helper("jsonQuote", "#899BA6", "")
 call s:highlight_helper("shQuote", "#899BA6", "")
 
-
 " ==================================================================
 " COMMON PLUGINS
 " ==================================================================
@@ -254,6 +253,6 @@ call s:highlight_helper("EasyMotionTarget2Second", "#DADA93", "")
 call s:highlight_helper("EasyMotionShade", "#899BA6", "")
 
 " FZF.vim
-call s:highlight_helper("fzf1", "#3C4C55", "#556873")
-call s:highlight_helper("fzf2", "#3C4C55", "#556873")
-call s:highlight_helper("fzf3", "#3C4C55", "#556873")
+call s:highlight_helper("fzf1", "#2C2C2C", "#556873")
+call s:highlight_helper("fzf2", "#2C2C2C", "#556873")
+call s:highlight_helper("fzf3", "#2C2C2C", "#556873")
