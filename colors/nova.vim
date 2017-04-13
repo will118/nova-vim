@@ -96,7 +96,7 @@ call s:highlight_helper("VertSplit", "#556873", "#556873")
 call s:highlight_helper("StatusLineNC", "#2C2C2C", "#556873")
 call s:highlight_helper("Pmenu", "#C5D4DD", "#556873")
 call s:highlight_helper("PmenuSbar", "#899BA6", "#899BA6")
-call s:highlight_helper("ColorColumn", "#556873", "")
+call s:highlight_helper("ColorColumn", "#798f9c", "#525252")
 
 
 " ==================================================================
